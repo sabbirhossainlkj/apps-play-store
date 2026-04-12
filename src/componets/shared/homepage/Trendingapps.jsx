@@ -1,8 +1,9 @@
 import React, { use } from "react";
 import { CiStar } from "react-icons/ci";
 import { FaDownload } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import AppCard from "../ui/AppCard";
+import { GridLoader } from "react-spinners";
 // const appsPromise = fetch('/data.json')
 //     .then(res => res.json());
 
@@ -10,7 +11,14 @@ const Trendingapps = () => {
   // const apps = use(appsPromise);
   // console.log(apps)
   const data = useLoaderData();
-  console.log(data);
+//   <GridLoader />
+   if (!data) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <GridLoader color="#36d7b7" />
+      </div>
+    );
+  }
   return (
     <div className="py-10 w-10/12 mx-auto">
       <div className="text-center">
@@ -22,11 +30,16 @@ const Trendingapps = () => {
         </p>
       </div>
       <div className="grid grid-cols-3 gap-3 py-5">
-        {data.map((app) => {
+        {data.slice(0, 9).map((app) => {
           return (
             <AppCard key={app.id} app={app} />
           );
         })}
+      </div>
+      <div className="flex justify-center mt-4">
+        <Link to={"/apps"}>
+          <button className="btn btn-primary">View All</button>
+        </Link>
       </div>
     </div>
   );

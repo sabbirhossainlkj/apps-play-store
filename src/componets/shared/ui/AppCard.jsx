@@ -1,12 +1,13 @@
 import React from 'react';
 import { CiStar } from 'react-icons/ci';
 import { FaDownload } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const AppCard = ({ app }) => {
     return (
-        <div className="card shadow-2xl border border-gray-400 rounded-2xl">
+        <Link to={`/apps/${app.id}`} className="card shadow-2xl border border-gray-400 rounded-2xl">
               <figure>
-                <img className="h-[200px]"
+                <img className="h-[200px] w-auto]"
                   src={app.image}
                 />
               </figure>
@@ -18,7 +19,7 @@ const AppCard = ({ app }) => {
                   <span className="flex gap-2 font-bold items-center"><CiStar /> {app.ratingAvg}</span>
                 </div>
               </div>
-            </div>
+            </Link>
     );
 };
 
