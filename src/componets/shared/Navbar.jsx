@@ -12,6 +12,7 @@ const Navbar = () => {
                 <li><NavLink className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500 font-bold' : ''} to={'/'}>Home</NavLink></li>
                 <li><NavLink className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500 font-bold' : ''} to={'/apps'}>Apps</NavLink></li>
                 <li><NavLink className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500 font-bold' : ''} to={'/installapps'}>Installation</NavLink></li>
+                <li><NavLink className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500 font-bold' : ''} to={'/dashboard'}>Dashboard</NavLink></li>
             </ul>
             <button className='btn btn-outline'><FaGithub /> Contribute</button>
         </nav>
